@@ -115,7 +115,7 @@ case class SqlLockService(dbConnection: DatabaseConnection, locksTable: String =
               }
 
             case Failure(t) =>
-              println(t.getMessage)
+              // println(t.getMessage)
               SqlLockService.ExecuteAfter(retryRate) { withDistributedLock(lockName, ttlInSeconds, retryRate)(block) }
           }
 
